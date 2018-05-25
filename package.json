@@ -5,13 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode developement --progress --watch",
+    "build": "webpack --mode development --progress --watch",
     "start": "webpack-dev-server --mode development --inline --content-base --watch."
   },
   "author": "L",
   "license": "ISC",
   "dependencies": {
-    "antd": "^3.5.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
   },
