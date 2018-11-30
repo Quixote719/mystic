@@ -16,7 +16,7 @@ module.exports = {
         open: true
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.json']
     },
     module: {
         rules: [
@@ -35,6 +35,10 @@ module.exports = {
             {
                 test: /\.(sass|scss)$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader', 'less-loader']
             },
             {
                 test: /\.(css)$/,
