@@ -14,7 +14,8 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "prettier"
   ],
   "globals": {
     "CACHE_MODE": false
@@ -22,6 +23,7 @@
   "parser": "babel-eslint",
   "rules": {
     "no-useless-escape": "off",
+    "prettier/prettier": "error",
     "indent": [
       "error",
       4,
