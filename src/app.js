@@ -6,8 +6,13 @@ class App extends React.Component {
         return (
             <div className="App">
                 <div className="block" />
-                <p className="App-intro">I dream and the world trembles</p>
-                <p className="App-intro">Halelujah</p>
+                <p className="App-intro">
+                    In silience and hope will be your strength
+                </p>
+                <p className="App-intro">
+                    Right now three things remain: faith, hope, and love.
+                </p>
+
                 <div className="deck" />
             </div>
         )
