@@ -9,6 +9,7 @@ class App extends React.Component {
         /* eslint-enable no-alert, no-console */
         // eslint-disable-next-line
         alert('foo');
+        alert('pain'); /* eslint-disable-line */
         return (
             <div className='App'>
                 <div className='block' />
