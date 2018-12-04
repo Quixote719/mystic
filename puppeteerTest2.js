@@ -14,9 +14,9 @@ const puppeteer = require('puppeteer');
     headless: false
   }));
   const page = await browser.newPage();
-  await page.goto('https://www.jianshu.com/');
+  await page.goto('https://electronjs.org/');
   await page.screenshot({
-    path: 'jianshuhome.png',
+    path: 'electron.png',
     type: 'png',
     // quality: 100, 只对jpg有效
     fullPage: true,
