@@ -1,5 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './app.js'
+import { BrowserRouter, Switch, Route, browserHistory } from 'react-router-dom'
+import Home from './pages/home'
+import Mercury from './pages/Mercury'
+import Venus from './pages/Venus'
+import Earth from './pages/Earth'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+class Router extends React.PureComponent {
+    render() {
+        return (
+            <BrowserRouter history={browserHistory}>
+                <div>
+                    <Home />
+                    <Switch>
+                        <Route path='/Mercury' component={Mercury} />
+                        <Route path='/Venus' component={Venus} />
+                        <Route path='/Earth' component={Earth} />
+                    </Switch>
+                </div>
+            </BrowserRouter>
+        )
+    }
+}
+ReactDOM.render(<Router />, document.getElementById('root'))
