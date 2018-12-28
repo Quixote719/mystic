@@ -1,15 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Switch, Route, browserHistory } from 'react-router-dom'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    browserHistory
+} from 'react-router-dom'
 import Home from './pages/home'
 import Mercury from './pages/Mercury'
 import Venus from './pages/Venus'
 import Earth from './pages/Earth'
 
-class Router extends React.PureComponent {
+class App extends React.PureComponent {
     render() {
         return (
-            <BrowserRouter history={browserHistory}>
+            <Router history={browserHistory}>
                 <div>
                     <Home />
                     <Switch>
@@ -18,8 +23,8 @@ class Router extends React.PureComponent {
                         <Route path='/Earth' component={Earth} />
                     </Switch>
                 </div>
-            </BrowserRouter>
+            </Router>
         )
     }
 }
-ReactDOM.render(<Router />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
