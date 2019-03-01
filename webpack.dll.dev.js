@@ -1,22 +1,22 @@
 const webpack = require('webpack')
 
-const vendors = ['react', 'react-dom', 'react-router-dom', 'antd']
+const vendors = ['react', 'react-dom', 'react-router-dom']
 
 module.exports = {
     output: {
         path: __dirname + '/build/www/src',
         filename: '[name].js',
-        library: '[name]',
+        library: '[name]'
     },
     mode: 'development',
     entry: {
-        vendor: vendors,
+        vendor: vendors
     },
     plugins: [
         new webpack.DllPlugin({
             path: __dirname + '/build/www/src/manifest.json',
             name: '[name]',
-            context: __dirname,
-        }),
-    ],
+            context: __dirname
+        })
+    ]
 }

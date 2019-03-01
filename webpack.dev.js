@@ -1,9 +1,9 @@
-let config = require('./webpack')
+let config = require('./webpack.config')
 const webpack = require('webpack')
 
 config.entry.push('webpack-hot-middleware/client')
 
-config.watch = true;
+config.watch = true
 
 config.watchOptions = {
     ignored: /node_modules/

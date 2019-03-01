@@ -8,3 +8,6 @@
       ]
     }
 </code></pre>
+
+
+"start": "webpack-dev-server --mode development --inline --content-base --history-api-fallback --watch",
