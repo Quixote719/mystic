@@ -6,10 +6,9 @@ class App extends React.Component {
         console.warn('Welcome to Mars')
         return (
             <div className='App'>
-                <p className='App-intro'>welcome to Mars!!</p>
+                <p className='App-intro'>welcome to Mars</p>
                 <Skeleton />
-                <Button>lure</Button>
-                <Button>No</Button>
+                <Button>Update</Button>
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/home'
 import Mercury from './pages/Mercury'
 import Venus from './pages/Venus'
@@ -12,6 +12,10 @@ import { Provider } from 'react-redux'
 import promise from 'redux-promise'
 import thunk from 'redux-thunk'
 import reducers from './reducers'
+const temp = module
+if (temp.hot) {
+    temp.hot.accept()
+}
 
 class App extends React.PureComponent {
     render() {

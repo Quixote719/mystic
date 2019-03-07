@@ -1,12 +1,16 @@
 // const webpack = require('webpack')
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin') //installed via npm
+// const path = require('path')
+// const HtmlWebpackPlugin = require('html-webpack-plugin') //installed via npm
 
 module.exports = {
     entry: [__dirname + '/src/index.js'],
     output: {
+        // filename: 'bundle.js',
+        // path: path.resolve(__dirname, 'build')
+
+        path: __dirname + '/build/www/src',
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build')
+        publicPath: '/src'
     },
     devServer: {
         contentBase: './',
@@ -38,6 +42,6 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             }
         ]
-    },
-    plugins: [new HtmlWebpackPlugin({ template: './index.html' })]
+    }
+    // plugins: [new HtmlWebpackPlugin({ template: './index.html' })]
 }
