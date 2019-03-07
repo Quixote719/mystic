@@ -6,7 +6,9 @@ class App extends React.Component {
         console.warn('Welcome to Jupiter')
         return (
             <div className='App'>
-                <p className='App-intro'>welcome to Jupiter</p>
+                <a className='App-intro' href='http://www.pewresearch.org/'>
+                    皮尤中心
+                </a>
             </div>
         )
     }

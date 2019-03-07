@@ -1,11 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    browserHistory
-} from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/home'
 import Mercury from './pages/Mercury'
 import Venus from './pages/Venus'
@@ -23,7 +18,7 @@ class App extends React.PureComponent {
         const middleware = applyMiddleware(promise, thunk)
         return (
             <Provider store={createStore(reducers, middleware)}>
-                <Router history={browserHistory}>
+                <Router>
                     <div>
                         <Home />
                         <Switch>

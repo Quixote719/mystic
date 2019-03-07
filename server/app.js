@@ -8,6 +8,7 @@ const config = require('./config')
 const app = new Koa()
 
 if (process.env.NODE_ENV === 'development') {
+    console.warn('development environment')
     const setupWebpackMiddleware = require('./webpack')
     setupWebpackMiddleware(app)
 }
@@ -22,9 +23,10 @@ app.use(KoaStatic(path.join(path.join(__dirname, '../www'))))
 
 // 渲染index.html
 // 若请求的api没办法匹配, 则渲染index.html
-app.use(async ctx => {
-    ctx.body = nunjucks.render('__index__template__.html', {})
-})
+// app.use(async ctx => {
+//     console.log('path: ' + ctx.path)
+//     ctx.body = nunjucks.render('__index__template__.html', {})
+// })
 
 app.listen(config.port)
 
