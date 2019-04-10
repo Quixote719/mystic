@@ -35,7 +35,11 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
+                use: [
+                    'style-loader',
+                    'css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]',
+                    'less-loader'
+                ]
             },
             {
                 test: /\.(css)$/,

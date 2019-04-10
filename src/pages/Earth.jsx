@@ -1,11 +1,12 @@
 import React from 'react'
-import './app.less'
+// import * as algorithm from '../algorithm/index'
+import styles from './app.less'
 
 class App extends React.Component {
     render() {
         return (
-            <div className='App'>
-                <p className='App-intro'>welcome to Earth</p>
+            <div className={styles.App}>
+                <p className={styles.appIntro}>welcome to Earth</p>
             </div>
         )
     }
