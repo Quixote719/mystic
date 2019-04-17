@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './app.less'
 
 class App extends React.Component {
+    formValidation = () => {}
     render() {
         return (
             <div className={styles.App}>
