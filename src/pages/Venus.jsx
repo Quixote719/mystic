@@ -11,8 +11,9 @@ class App extends React.Component {
     formValidation = () => {
         let a = [1, 2, 3]
         let b = [7, 8, 9]
-        const c = [...a, ...b]
-        return c
+        let c = ['o', 'p', 'q']
+        const res = [...a, ...b, ...c]
+        return res
     }
     render() {
         console.warn(this.formValidation())
