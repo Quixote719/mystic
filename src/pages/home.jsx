@@ -31,6 +31,9 @@ class Home extends React.Component {
                     <div>
                         <Link to='/Jupiter'>Jupiter</Link>
                     </div>
+                    <div>
+                        <Link to='/Saturn'>Saturn</Link>
+                    </div>
                 </div>
             </div>
         )

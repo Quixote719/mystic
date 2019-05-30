@@ -1,4 +1,4 @@
-let countNum = 5
+let countNum = 6
 
 export function countPlanet() {
     return function(dispatch) {

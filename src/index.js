@@ -7,6 +7,7 @@ import Venus from './pages/Venus'
 import Earth from './pages/Earth'
 import Mars from './pages/Mars'
 import Jupiter from './pages/Jupiter'
+import Saturn from './pages/Saturn'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import promise from 'redux-promise'
@@ -31,6 +32,7 @@ class App extends React.PureComponent {
                             <Route path='/Earth' component={Earth} />
                             <Route path='/Mars' component={Mars} />
                             <Route path='/Jupiter' component={Jupiter} />
+                            <Route path='/Saturn' component={Saturn} />
                         </Switch>
                     </div>
                 </Router>
