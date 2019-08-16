@@ -10,11 +10,10 @@ class EventChart extends PureComponent {
     }
 
     getOption() {
-        const { statistics } = this.props
-        const PlainNum = 0
-        const DagNum = 0
-        const PipelineNum = 0
-        const totalNum = statistics ? statistics.totalCount : 0
+        const PlainNum = 5
+        const DagNum = 9
+        const PipelineNum = 12
+        const totalNum = PlainNum + DagNum + PipelineNum
         const options = {
             tooltip: {
                 trigger: 'item',
@@ -145,7 +144,9 @@ class EventChart extends PureComponent {
     }
 }
 
-const mapStateToProps = () => {}
+const mapStateToProps = () => {
+    return {}
+}
 
 const mapDispatchToProps = dispatch => ({
     onRedirect: param => {

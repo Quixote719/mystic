@@ -10,11 +10,10 @@ class EntityChart extends PureComponent {
     }
 
     getOption() {
-        const { statistics } = this.props
-        const PlainNum = 0
-        const DagNum = 0
-        const PipelineNum = 0
-        const totalNum = statistics ? statistics.totalCount : 0
+        const PlainNum = 4
+        const DagNum = 7
+        const PipelineNum = 11
+        const totalNum = PlainNum + DagNum + PipelineNum
         const options = {
             tooltip: {
                 trigger: 'item',
@@ -145,7 +144,9 @@ class EntityChart extends PureComponent {
     }
 }
 
-const mapStateToProps = () => {}
+const mapStateToProps = () => {
+    return {}
+}
 
 const mapDispatchToProps = dispatch => ({
     onRedirect: param => {

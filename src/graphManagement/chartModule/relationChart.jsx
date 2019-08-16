@@ -10,11 +10,10 @@ class RelationChart extends PureComponent {
     }
 
     getOption() {
-        const { statistics } = this.props
-        const PlainNum = 0
-        const DagNum = 0
-        const PipelineNum = 0
-        const totalNum = statistics ? statistics.totalCount : 0
+        const PlainNum = 20
+        const DagNum = 39
+        const PipelineNum = 112
+        const totalNum = PlainNum + DagNum + PipelineNum
         const options = {
             tooltip: {
                 trigger: 'item',
@@ -145,7 +144,9 @@ class RelationChart extends PureComponent {
     }
 }
 
-const mapStateToProps = () => {}
+const mapStateToProps = () => {
+    return {}
+}
 
 const mapDispatchToProps = dispatch => ({
     onRedirect: param => {
