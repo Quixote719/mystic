@@ -28,7 +28,7 @@ class Sider extends React.Component {
                     minHeight: '100vh'
                 }}
             >
-                <Button type='primary' onClick={this.toggleCollapsed}>
+                <Button onClick={this.toggleCollapsed}>
                     <Icon
                         type={
                             this.state.collapsed ? 'menu-unfold' : 'menu-fold'

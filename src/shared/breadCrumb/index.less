@@ -1,0 +1,33 @@
+// @import '../../variables.less';
+
+@clearfloat: {
+    &:after{
+        content:'';
+        display: block;
+        clear:both;
+    }
+};
+
+.container{
+    line-height:22px;
+    font-size:16px;
+    padding: 13px 16px;
+    background: #FFFFFF;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #1A1A1A;
+    font-weight: bold;
+    z-index: 205;
+    position: relative;
+    @clearfloat();
+    .left{
+        float:left;
+    }
+    .right{
+        float:right;
+    }
+}
+
+.stringHalfList{
+    color: #4967F4;
+    cursor: pointer;
+}

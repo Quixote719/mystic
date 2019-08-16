@@ -1,8 +1,9 @@
 import React from 'react'
 import { Table, Button, Menu, Input, Icon, Modal } from 'antd'
+import Breadcrumb from '../shared/breadCrumb'
 import moment from 'moment'
 import { knowledgeGraphData } from '../util/mock'
-import styles from './app.less'
+import styles from './index.less'
 
 const Search = Input.Search
 // const COL_DEFAULT_WIDTH = 180
@@ -211,7 +212,7 @@ class GraphList extends React.PureComponent {
         return (
             <div style={{ margin: '15px 0' }}>
                 <Button onClick={this.modelUpload}>
-                    <Icon type='upload' /> 上传模型
+                    <Icon type='upload' /> 新建图谱
                 </Button>
                 <Search
                     className={'tableSearch'}
@@ -268,7 +269,7 @@ class GraphList extends React.PureComponent {
     renderUploadModal() {
         return (
             <Modal
-                title='上传模型'
+                title='新建图谱'
                 visible={true}
                 onCancel={() => this.onCancelUpload()}
                 width={500}
@@ -317,7 +318,7 @@ class GraphList extends React.PureComponent {
     render() {
         return (
             <div className={styles.pageContent}>
-                <div className={styles.pageTitle}>模型管理</div>
+                <Breadcrumb stringArr={[{ name: '图谱管理' }]} />
                 <div className={styles.container}>
                     {this.renderEditBlock()}
                     {this.renderModelTable()}

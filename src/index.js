@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Layout } from 'antd'
-import Sider from './pages/sider'
-import GraphDashBoard from './pages/graphDashBoard'
-import GraphList from './pages/graphList'
+import Sider from './shared/sider'
+import GraphAnalysis from './graphAnalysis'
+import GraphManagement from './graphManagement'
+import GraphDashBoard from './graphManagement/graphDashboard'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import promise from 'redux-promise'
@@ -22,22 +23,28 @@ class App extends React.PureComponent {
             <Layout style={{ height: '100vh' }}>
                 <Provider store={createStore(reducers, middleware)}>
                     <Router>
-                        <div>
+                        <div style={{ display: 'flex' }}>
                             <Sider />
                             <div
                                 style={{
-                                    width: '77%',
+                                    width: '100%',
                                     display: 'inline-block'
                                 }}
                             >
                                 <Switch>
                                     <Route
+                                        exact
                                         path='/graphManagement'
-                                        component={GraphList}
+                                        component={GraphManagement}
                                     />
                                     <Route
-                                        path='/graphAnalysis'
+                                        path='/graphManagement/graphDashBoard'
                                         component={GraphDashBoard}
+                                    />
+                                    <Route
+                                        exact
+                                        path='/graphAnalysis'
+                                        component={GraphAnalysis}
                                     />
                                 </Switch>
                             </div>
