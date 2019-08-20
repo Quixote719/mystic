@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Layout } from 'antd'
-import Sider from './shared/sider'
+import Sider from './shared/sider/knowledgeGraphSider'
 import GraphAnalysis from './graphAnalysis'
 import GraphManagement from './graphManagement'
 import GraphDashBoard from './graphManagement/graphDashboard'
@@ -44,6 +44,18 @@ class App extends React.PureComponent {
                                     <Route
                                         exact
                                         path='/graphAnalysis'
+                                        component={GraphAnalysis}
+                                    />
+                                    <Route
+                                        path='/graphAnalysis/Gremlin/:id'
+                                        component={GraphAnalysis}
+                                    />
+                                    <Route
+                                        path='/graphAnalysis/Search/:id'
+                                        component={GraphAnalysis}
+                                    />
+                                    <Route
+                                        path='/graphAnalysis/Algorithm/:id'
                                         component={GraphAnalysis}
                                     />
                                 </Switch>

@@ -225,6 +225,7 @@ class GraphList extends React.PureComponent {
     }
 
     renderModelTable = () => {
+        knowledgeGraphData.forEach(item => (item.key = item.modelId))
         return (
             <div>
                 <Table

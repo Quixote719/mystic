@@ -1,5 +1,6 @@
 import React from 'react'
-import Breadcrumb from '../shared/breadCrumb'
+import GraphAnalysisSider from '../shared/sider/graphAnalysisSider'
+
 export default class GraphDashBoard extends React.PureComponent {
     constructor(props) {
         super(props)
@@ -8,7 +9,7 @@ export default class GraphDashBoard extends React.PureComponent {
     render() {
         return (
             <div>
-                <Breadcrumb stringArr={[{ name: '图谱分析' }]} />
+                <GraphAnalysisSider />
             </div>
         )
     }
