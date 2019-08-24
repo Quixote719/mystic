@@ -14,6 +14,8 @@ class EntityEventSider extends React.Component {
 
     handleTabChange() {}
 
+    handleSearch() {}
+
     renderTabContent() {
         return (
             <div style={{ width: '95%', margin: 'auto' }}>
@@ -76,7 +78,12 @@ class EntityEventSider extends React.Component {
                         {this.renderTabContent()}
                     </TabPane>
                 </Tabs>
-                <Button className={styles.searchBtn}>搜索</Button>
+                <Button
+                    className={styles.searchBtn}
+                    onClick={this.handleSearch}
+                >
+                    搜索
+                </Button>
             </div>
         )
     }

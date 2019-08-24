@@ -21,7 +21,7 @@ class GraphAnalysis extends React.PureComponent {
         return (
             <div>
                 <GraphAnalysisSider />
-                {this.getPath('Gremlin') && <EntityEventSider />}
+                {this.getPath('Search') && <EntityEventSider />}
             </div>
         )
     }
