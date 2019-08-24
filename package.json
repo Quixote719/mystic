@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode development --progress --watch",
-    "build:prod": "webpack --mode production --progress --watch",
+    "build:dev": "webpack --mode development --progress --watch",
+    "build": "webpack --mode production --progress --watch",
     "setup:dev": "gulp clean-build && gulp copy-all && webpack --config webpack.dll.dev.js",
     "start": "npm run setup:dev && set NODE_ENV=development&& nodemon --delay 2 --verbose --watch build/server build/server/app.js"
   },
