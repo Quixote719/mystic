@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Select, Tabs, Button } from 'antd'
+import { Input, Select, Tabs, Button, Icon } from 'antd'
 import { withRouter } from 'react-router-dom'
 import SubInput from './rightSubInput'
 import styles from './index.less'
@@ -12,13 +12,19 @@ class EntityEventSider extends React.Component {
         this.state = {}
     }
 
+    toggleCollapsed = () => {
+        this.setState({
+            collapsed: !this.state.collapsed
+        })
+    }
+
     handleTabChange() {}
 
     handleSearch() {}
 
     renderTabContent() {
         return (
-            <div style={{ width: '95%', margin: 'auto' }}>
+            <div className={styles.anaylzeSiderContent}>
                 <SubInput title='类型' isRequired={true} key='type'>
                     <Select style={{ width: '100%' }} disabled={false}>
                         <Option value={'person'} key={'person'}>
@@ -60,30 +66,45 @@ class EntityEventSider extends React.Component {
 
     render() {
         return (
-            <div className={styles.entitySider}>
-                <div
-                    style={{
-                        fontSize: '1.2em',
-                        fontWeight: 800,
-                        margin: '0 10px'
-                    }}
-                >
-                    实体/事件查询
+            <div
+                className={styles.graphAnalysisSider}
+                style={{ width: this.state.collapsed ? '50px' : '300px' }}
+            >
+                <div className={styles.anaylzeSiderHeader}>
+                    {!this.state.collapsed && (
+                        <span style={{ margin: '0 10px' }}>实体/事件查询</span>
+                    )}
+                    <Icon
+                        className={styles.toggleIcon}
+                        onClick={this.toggleCollapsed}
+                        type={
+                            this.state.collapsed
+                                ? 'double-right'
+                                : 'double-left'
+                        }
+                    />
                 </div>
-                <Tabs defaultActiveKey='entity' onChange={this.handleTabChange}>
-                    <TabPane tab={'实体'} key='entity'>
-                        {this.renderTabContent()}
-                    </TabPane>
-                    <TabPane tab={'事件'} key='event'>
-                        {this.renderTabContent()}
-                    </TabPane>
-                </Tabs>
-                <Button
-                    className={styles.searchBtn}
-                    onClick={this.handleSearch}
-                >
-                    搜索
-                </Button>
+                {!this.state.collapsed && (
+                    <div>
+                        <Tabs
+                            defaultActiveKey='entity'
+                            onChange={this.handleTabChange}
+                        >
+                            <TabPane tab={'实体'} key='entity'>
+                                {this.renderTabContent()}
+                            </TabPane>
+                            <TabPane tab={'事件'} key='event'>
+                                {this.renderTabContent()}
+                            </TabPane>
+                        </Tabs>
+                        <Button
+                            className={styles.searchBtn}
+                            onClick={this.handleSearch}
+                        >
+                            搜索
+                        </Button>
+                    </div>
+                )}
             </div>
         )
     }

@@ -27,8 +27,8 @@ class GraphAnalysisSider extends React.Component {
                 <Menu
                     // defaultSelectedKeys={['1']}
                     // defaultOpenKeys={['sub1']}
+                    // theme='dark'
                     mode='inline'
-                    // theme="dark"
                     inlineCollapsed={this.state.collapsed}
                 >
                     <Menu.Item

@@ -1,6 +1,8 @@
 import React from 'react'
 import GraphAnalysisSider from '../shared/sider/graphAnalysisSider'
+import GremlinSearchSider from './gremlinSearchSider'
 import EntityEventSider from './entityEventSider'
+import MiningAlgorithmSider from './miningAlgorithmSider'
 import { withRouter } from 'react-router-dom'
 
 class GraphAnalysis extends React.PureComponent {
@@ -21,7 +23,9 @@ class GraphAnalysis extends React.PureComponent {
         return (
             <div>
                 <GraphAnalysisSider />
+                {this.getPath('Gremlin') && <GremlinSearchSider />}
                 {this.getPath('Search') && <EntityEventSider />}
+                {this.getPath('Algorithm') && <MiningAlgorithmSider />}
             </div>
         )
     }
