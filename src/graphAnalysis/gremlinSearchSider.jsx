@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Input, Icon } from 'antd'
 import { withRouter } from 'react-router-dom'
+import * as graphAnalysisActions from './actions'
 // import SubInput from './rightSubInput'
 import styles from './index.less'
 const { TextArea } = Input
@@ -8,25 +10,21 @@ const { TextArea } = Input
 class GremlinSearchSider extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            collapsed: false
-        }
     }
 
     toggleCollapsed = () => {
-        this.setState({
-            collapsed: !this.state.collapsed
-        })
+        this.props.onToggle()
     }
 
     render() {
+        const siderStatus = this.props.GREMLIN
         return (
             <div
                 className={styles.graphAnalysisSider}
-                style={{ width: this.state.collapsed ? '50px' : '300px' }}
+                style={{ width: siderStatus ? '50px' : '300px' }}
             >
                 <div className={styles.anaylzeSiderHeader}>
-                    {!this.state.collapsed && (
+                    {!siderStatus && (
                         <span style={{ margin: '0 10px' }}>
                             Gremlin语句查询
                         </span>
@@ -34,14 +32,10 @@ class GremlinSearchSider extends React.Component {
                     <Icon
                         className={styles.toggleIcon}
                         onClick={this.toggleCollapsed}
-                        type={
-                            this.state.collapsed
-                                ? 'double-right'
-                                : 'double-left'
-                        }
+                        type={siderStatus ? 'double-right' : 'double-left'}
                     />
                 </div>
-                {!this.state.collapsed && (
+                {!siderStatus && (
                     <div className={styles.anaylzeSiderContent}>
                         <TextArea autosize={{ minRows: 5 }} />
                     </div>
@@ -51,4 +45,24 @@ class GremlinSearchSider extends React.Component {
     }
 }
 
-export default withRouter(GremlinSearchSider)
+const mapStateToProps = state => {
+    const { graphAnalysisReducer } = state
+    const { toggleSiderCollapsed } = graphAnalysisReducer
+    const { GREMLIN } = toggleSiderCollapsed
+    return {
+        GREMLIN
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    onToggle: () => {
+        dispatch(graphAnalysisActions.toggleSiderCollapsed('GREMLIN'))
+    }
+})
+
+export default withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(GremlinSearchSider)
+)

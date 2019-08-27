@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Input, Select, Tabs, Button, Icon } from 'antd'
 import { withRouter } from 'react-router-dom'
+import * as graphAnalysisActions from './actions'
 import SubInput from './rightSubInput'
 import styles from './index.less'
 const { TabPane } = Tabs
@@ -9,13 +11,10 @@ const Option = Select.Option
 class EntityEventSider extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {}
     }
 
     toggleCollapsed = () => {
-        this.setState({
-            collapsed: !this.state.collapsed
-        })
+        this.props.onToggle()
     }
 
     handleTabChange() {}
@@ -65,26 +64,23 @@ class EntityEventSider extends React.Component {
     }
 
     render() {
+        const siderStatus = this.props.ENTITY_EVENT
         return (
             <div
                 className={styles.graphAnalysisSider}
-                style={{ width: this.state.collapsed ? '50px' : '300px' }}
+                style={{ width: siderStatus ? '50px' : '300px' }}
             >
                 <div className={styles.anaylzeSiderHeader}>
-                    {!this.state.collapsed && (
+                    {!siderStatus && (
                         <span style={{ margin: '0 10px' }}>实体/事件查询</span>
                     )}
                     <Icon
                         className={styles.toggleIcon}
                         onClick={this.toggleCollapsed}
-                        type={
-                            this.state.collapsed
-                                ? 'double-right'
-                                : 'double-left'
-                        }
+                        type={siderStatus ? 'double-right' : 'double-left'}
                     />
                 </div>
-                {!this.state.collapsed && (
+                {!siderStatus && (
                     <div>
                         <Tabs
                             defaultActiveKey='entity'
@@ -110,4 +106,24 @@ class EntityEventSider extends React.Component {
     }
 }
 
-export default withRouter(EntityEventSider)
+const mapStateToProps = state => {
+    const { graphAnalysisReducer } = state
+    const { toggleSiderCollapsed } = graphAnalysisReducer
+    const { ENTITY_EVENT } = toggleSiderCollapsed
+    return {
+        ENTITY_EVENT
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    onToggle: () => {
+        dispatch(graphAnalysisActions.toggleSiderCollapsed('ENTITY_EVENT'))
+    }
+})
+
+export default withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(EntityEventSider)
+)

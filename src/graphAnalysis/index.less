@@ -1,9 +1,9 @@
 .graphAnalysisSider{
     width: 300px;
-    position: absolute;
     display: inline-block;
     background: #FFFFFF;
-    min-height: 100vh
+    min-height: 100vh;
+    transition: width 0.5s;
 }
 
 .rightSubInput{
@@ -13,12 +13,16 @@
     }
     .rightSubInputContent{
         position: relative;
-        //background: #ffffff;
     }
 
     :global(.ant-select){
         width:100%;
     }
+}
+
+.graphAnalysisPage {
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .anaylzeSiderHeader {
@@ -31,8 +35,13 @@
     margin: auto;
 }
 
+.graphCanvas {
+    flex-grow: 1;
+    height: 100vh;
+    background: #DDDDDD;
+}
+
 .toggleIcon {
-    position:absolute;
     right: 3px;
     margin: 5px 10px;
 }

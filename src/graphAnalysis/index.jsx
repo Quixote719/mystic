@@ -3,6 +3,8 @@ import GraphAnalysisSider from '../shared/sider/graphAnalysisSider'
 import GremlinSearchSider from './gremlinSearchSider'
 import EntityEventSider from './entityEventSider'
 import MiningAlgorithmSider from './miningAlgorithmSider'
+import KnowledgeGraphCanvas from './knowledgeGraphCanvas'
+import styles from './index.less'
 import { withRouter } from 'react-router-dom'
 
 class GraphAnalysis extends React.PureComponent {
@@ -21,11 +23,12 @@ class GraphAnalysis extends React.PureComponent {
     render() {
         this.getPath()
         return (
-            <div>
+            <div className={styles.graphAnalysisPage}>
                 <GraphAnalysisSider />
                 {this.getPath('Gremlin') && <GremlinSearchSider />}
                 {this.getPath('Search') && <EntityEventSider />}
                 {this.getPath('Algorithm') && <MiningAlgorithmSider />}
+                <KnowledgeGraphCanvas />
             </div>
         )
     }

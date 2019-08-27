@@ -6,11 +6,8 @@ import Sider from './shared/sider/knowledgeGraphSider'
 import GraphAnalysis from './graphAnalysis'
 import GraphManagement from './graphManagement'
 import GraphDashBoard from './graphManagement/graphDashboard'
-import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import promise from 'redux-promise'
-import thunk from 'redux-thunk'
-import reducers from './reducers'
+import store from './store'
 const temp = module
 if (temp.hot) {
     temp.hot.accept()
@@ -18,10 +15,9 @@ if (temp.hot) {
 
 class App extends React.PureComponent {
     render() {
-        const middleware = applyMiddleware(promise, thunk)
         return (
             <Layout style={{ height: '100vh' }}>
-                <Provider store={createStore(reducers, middleware)}>
+                <Provider store={store}>
                     <Router>
                         <div style={{ display: 'flex' }}>
                             <Sider />

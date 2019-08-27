@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Icon } from 'antd'
 import { withRouter } from 'react-router-dom'
+import * as graphAnalysisActions from './actions'
 // import SubInput from './rightSubInput'
 import styles from './index.less'
 // const { TextArea } = Input
@@ -8,35 +10,27 @@ import styles from './index.less'
 class MiningAlgorithmSider extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            collapsed: false
-        }
     }
 
     toggleCollapsed = () => {
-        this.setState({
-            collapsed: !this.state.collapsed
-        })
+        this.props.onToggle()
     }
 
     render() {
+        const siderStatus = this.props.ALGORITHM
         return (
             <div
                 className={styles.graphAnalysisSider}
-                style={{ width: this.state.collapsed ? '50px' : '300px' }}
+                style={{ width: siderStatus ? '50px' : '300px' }}
             >
                 <div className={styles.anaylzeSiderHeader}>
-                    {!this.state.collapsed && (
+                    {!siderStatus && (
                         <span style={{ margin: '0 10px' }}>算法挖掘</span>
                     )}
                     <Icon
                         className={styles.toggleIcon}
                         onClick={this.toggleCollapsed}
-                        type={
-                            this.state.collapsed
-                                ? 'double-right'
-                                : 'double-left'
-                        }
+                        type={siderStatus ? 'double-right' : 'double-left'}
                     />
                 </div>
             </div>
@@ -44,4 +38,24 @@ class MiningAlgorithmSider extends React.Component {
     }
 }
 
-export default withRouter(MiningAlgorithmSider)
+const mapStateToProps = state => {
+    const { graphAnalysisReducer } = state
+    const { toggleSiderCollapsed } = graphAnalysisReducer
+    const { ALGORITHM } = toggleSiderCollapsed
+    return {
+        ALGORITHM
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    onToggle: () => {
+        dispatch(graphAnalysisActions.toggleSiderCollapsed('ALGORITHM'))
+    }
+})
+
+export default withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(MiningAlgorithmSider)
+)
