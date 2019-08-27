@@ -72,7 +72,14 @@ class EntityEventSider extends React.Component {
             >
                 <div className={styles.anaylzeSiderHeader}>
                     {!siderStatus && (
-                        <span style={{ margin: '0 10px' }}>实体/事件查询</span>
+                        <span
+                            style={{
+                                margin: '0 10px',
+                                display: !siderStatus ? 'inline-block' : 'none'
+                            }}
+                        >
+                            实体/事件查询
+                        </span>
                     )}
                     <Icon
                         className={styles.toggleIcon}
@@ -80,8 +87,8 @@ class EntityEventSider extends React.Component {
                         type={siderStatus ? 'double-right' : 'double-left'}
                     />
                 </div>
-                {!siderStatus && (
-                    <div>
+                {
+                    <div style={{ display: !siderStatus ? 'block' : 'none' }}>
                         <Tabs
                             defaultActiveKey='entity'
                             onChange={this.handleTabChange}
@@ -100,7 +107,7 @@ class EntityEventSider extends React.Component {
                             搜索
                         </Button>
                     </div>
-                )}
+                }
             </div>
         )
     }

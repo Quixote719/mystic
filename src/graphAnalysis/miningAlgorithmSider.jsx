@@ -24,9 +24,16 @@ class MiningAlgorithmSider extends React.Component {
                 style={{ width: siderStatus ? '50px' : '300px' }}
             >
                 <div className={styles.anaylzeSiderHeader}>
-                    {!siderStatus && (
-                        <span style={{ margin: '0 10px' }}>算法挖掘</span>
-                    )}
+                    {
+                        <span
+                            style={{
+                                margin: '0 10px',
+                                display: !siderStatus ? 'inline-block' : 'none'
+                            }}
+                        >
+                            算法挖掘
+                        </span>
+                    }
                     <Icon
                         className={styles.toggleIcon}
                         onClick={this.toggleCollapsed}

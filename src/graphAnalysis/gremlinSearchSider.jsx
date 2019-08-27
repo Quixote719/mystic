@@ -24,22 +24,30 @@ class GremlinSearchSider extends React.Component {
                 style={{ width: siderStatus ? '50px' : '300px' }}
             >
                 <div className={styles.anaylzeSiderHeader}>
-                    {!siderStatus && (
-                        <span style={{ margin: '0 10px' }}>
+                    {
+                        <span
+                            style={{
+                                margin: '0 10px',
+                                display: !siderStatus ? 'inline-block' : 'none'
+                            }}
+                        >
                             Gremlin语句查询
                         </span>
-                    )}
+                    }
                     <Icon
                         className={styles.toggleIcon}
                         onClick={this.toggleCollapsed}
                         type={siderStatus ? 'double-right' : 'double-left'}
                     />
                 </div>
-                {!siderStatus && (
-                    <div className={styles.anaylzeSiderContent}>
+                {
+                    <div
+                        className={styles.anaylzeSiderContent}
+                        style={{ display: !siderStatus ? 'block' : 'none' }}
+                    >
                         <TextArea autosize={{ minRows: 5 }} />
                     </div>
-                )}
+                }
             </div>
         )
     }

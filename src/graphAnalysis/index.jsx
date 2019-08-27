@@ -21,7 +21,6 @@ class GraphAnalysis extends React.PureComponent {
     }
 
     render() {
-        this.getPath()
         return (
             <div className={styles.graphAnalysisPage}>
                 <GraphAnalysisSider />
