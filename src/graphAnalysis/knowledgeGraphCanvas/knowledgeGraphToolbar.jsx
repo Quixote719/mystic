@@ -9,36 +9,49 @@ class KnowledgeGraphCanvas extends React.Component {
         this.state = {}
     }
 
+    selectGraph() {
+        console.warn('007')
+    }
+
     renderGraphSelect() {
         return (
             <Select
                 style={{ width: 280 }}
                 allowClear={true}
-                defaultValue={['ID', 'gender', 'name', 'race']}
+                onChange={this.selectGraph}
+                defaultValue={[
+                    'Finance',
+                    'Transportation',
+                    'Police',
+                    'General'
+                ]}
                 disabled={false}
             >
-                <Option value={'ID'} key={'ID'}>
-                    ID
+                <Option value={'Finance'} key={'ID'}>
+                    金融知识图谱
                 </Option>
-                <Option value={'gender'} key={'gender'}>
-                    性别
+                <Option value={'Transportation'} key={'gender'}>
+                    交通知识图谱
                 </Option>
-                <Option value={'name'} key={'name'}>
-                    姓名
+                <Option value={'Police'} key={'name'}>
+                    公安知识图谱
                 </Option>
-                <Option value={'race'} key={'race'}>
-                    民族
+                <Option value={'General'} key={'race'}>
+                    通用知识图谱
                 </Option>
             </Select>
         )
     }
 
     renderStatusBar() {
+        const entity = 29
+        const event = 17
+        const relation = 66
         return (
             <div>
-                <div className={styles.statusBtn}>实体</div>
-                <div className={styles.statusBtn}>事件</div>
-                <div className={styles.statusBtn}>关系</div>
+                <div className={styles.statusBtn}>实体: {entity}</div>
+                <div className={styles.statusBtn}>事件: {event}</div>
+                <div className={styles.statusBtn}>关系: {relation}</div>
             </div>
         )
     }

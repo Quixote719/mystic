@@ -1,4 +1,4 @@
-import * as graphAnalysisActions from './actions'
+import * as graphAnalysisActions from './action'
 import { combineReducers } from 'redux'
 
 const toggleSiderCollapsed = (

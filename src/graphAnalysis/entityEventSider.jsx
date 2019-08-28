@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Input, Select, Tabs, Button, Icon } from 'antd'
 import { withRouter } from 'react-router-dom'
-import * as graphAnalysisActions from './actions'
+import * as graphAnalysisActions from './action'
 import SubInput from './rightSubInput'
 import styles from './index.less'
 const { TabPane } = Tabs

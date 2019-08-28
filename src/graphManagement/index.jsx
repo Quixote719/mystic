@@ -2,7 +2,7 @@ import React from 'react'
 import { Table, Button, Menu, Input, Icon, Modal } from 'antd'
 import Breadcrumb from '../shared/breadCrumb'
 import moment from 'moment'
-import { knowledgeGraphData } from '../util/mock'
+import { knowledgeGraphData } from '../utils/mock'
 import styles from './index.less'
 
 const Search = Input.Search
