@@ -1,4 +1,4 @@
-import * as graphAnalysisActions from './action'
+import * as graphAnalysisActions from './actions'
 import { combineReducers } from 'redux'
 
 const toggleSiderCollapsed = (
@@ -20,8 +20,18 @@ const toggleSiderCollapsed = (
     }
 }
 
+const selectKnowledgeGraph = (state = '', action) => {
+    switch (action.type) {
+        case graphAnalysisActions.SELECT_KNOWLEDGE_GRAPH:
+            return action.param
+        default:
+            return state
+    }
+}
+
 const graphAnalysisReducer = combineReducers({
-    toggleSiderCollapsed
+    toggleSiderCollapsed,
+    selectKnowledgeGraph
 })
 
 export default graphAnalysisReducer

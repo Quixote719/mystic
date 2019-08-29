@@ -24,8 +24,10 @@ app.use(KoaStatic(path.join(path.join(__dirname, '../www'))))
 // 渲染index.html
 // 若请求的api没办法匹配, 则渲染index.html
 app.use(async ctx => {
-    console.warn('path: ' + ctx.path)
-    ctx.body = nunjucks.render('__index__template__.html', {})
+    console.warn('API_PREFIX ' + config.knowledgeGraphPrefix)
+    ctx.body = nunjucks.render('__index__template__.html', {
+        API_PREFIX: config.knowledgeGraphPrefix
+    })
 })
 
 app.listen(config.port)

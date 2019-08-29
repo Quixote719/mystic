@@ -1,7 +1,10 @@
 import React from 'react'
 import { Select, Button, Icon } from 'antd'
 import { withRouter } from 'react-router-dom'
+import * as graphAnalysisActions from '../actions'
+import { connect } from 'react-redux'
 import styles from '../index.less'
+const Option = Select.Option
 
 class KnowledgeGraphCanvas extends React.Component {
     constructor(props) {
@@ -9,34 +12,36 @@ class KnowledgeGraphCanvas extends React.Component {
         this.state = {}
     }
 
-    selectGraph() {
-        console.warn('007')
+    selectGraph(params) {
+        this.props.selectGraph(params)
     }
 
     renderGraphSelect() {
+        const { selectKnowledgeGraph } = this.props
         return (
             <Select
                 style={{ width: 280 }}
                 allowClear={true}
-                onChange={this.selectGraph}
-                defaultValue={[
-                    'Finance',
-                    'Transportation',
-                    'Police',
-                    'General'
-                ]}
+                onChange={e => this.selectGraph(e)}
+                // defaultValue={[
+                //     'Finance',
+                //     'Transportation',
+                //     'Police',
+                //     'General'
+                // ]}
+                value={selectKnowledgeGraph}
                 disabled={false}
             >
-                <Option value={'Finance'} key={'ID'}>
+                <Option value={'Finance'} key={'Finance'}>
                     金融知识图谱
                 </Option>
-                <Option value={'Transportation'} key={'gender'}>
+                <Option value={'Transportation'} key={'Transportation'}>
                     交通知识图谱
                 </Option>
-                <Option value={'Police'} key={'name'}>
+                <Option value={'Police'} key={'Police'}>
                     公安知识图谱
                 </Option>
-                <Option value={'General'} key={'race'}>
+                <Option value={'General'} key={'General'}>
                     通用知识图谱
                 </Option>
             </Select>
@@ -98,4 +103,23 @@ class KnowledgeGraphCanvas extends React.Component {
     }
 }
 
-export default withRouter(KnowledgeGraphCanvas)
+const mapStateToProps = state => {
+    const { graphAnalysisReducer } = state
+    const { selectKnowledgeGraph } = graphAnalysisReducer
+    return {
+        selectKnowledgeGraph
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    selectGraph: params => {
+        dispatch(graphAnalysisActions.changeKnowledgeGraph(params))
+    }
+})
+
+export default withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(KnowledgeGraphCanvas)
+)
